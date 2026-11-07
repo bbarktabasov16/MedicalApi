@@ -64,7 +64,3 @@ OpenAPI: http://localhost:5129/openapi/v1.json
 ## Проверка и сдача
 
 Сборка: 0 ошибок, 0 предупреждений. На отдельном экземпляре выполнено 156 HTTP-проверок: CRUD всех модулей, валидация POST/PUT, связи, стартовые данные, отсутствие повторов Id после удаления, статистика и коды OpenAPI.
-
-Документация ProducesResponseType: https://learn.microsoft.com/en-us/aspnet/core/web-api/action-return-types?view=aspnetcore-9.0
-
-Репозиторий для сдачи: https://github.com/bbarktabasov16/MedicalApi. На паре показать API в Swagger по сценарию выше.
