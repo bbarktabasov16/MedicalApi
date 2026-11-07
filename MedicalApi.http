@@ -1,0 +1,58 @@
+@MedicalApi_HostAddress = http://localhost:5129
+
+### Каталог
+GET {{MedicalApi_HostAddress}}/api/SpravkaTypes
+
+### Создать пациента (Id из ответа используйте в следующих запросах)
+POST {{MedicalApi_HostAddress}}/api/Patients
+Content-Type: application/json
+
+{
+  "name": "Alice",
+  "birthDate": "2000-05-15",
+  "phone": "+996700123456",
+  "address": "Бишкек",
+  "apartment": 10,
+  "hasInsurance": true
+}
+
+### Выписать справку стартовому пациенту; цена и название возьмутся из каталога
+POST {{MedicalApi_HostAddress}}/api/Spravki
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "spravkaTypeId": 3,
+  "name": "Это название будет заменено",
+  "price": -500
+}
+
+### Справки пациента
+GET {{MedicalApi_HostAddress}}/api/Patients/1/spravki
+
+### Статистика
+GET {{MedicalApi_HostAddress}}/api/Spravki/statistics
+
+### Врачи
+GET {{MedicalApi_HostAddress}}/api/Doctors
+
+### Создать врача
+POST {{MedicalApi_HostAddress}}/api/Doctors
+Content-Type: application/json
+
+{
+  "name": "Елена Орлова",
+  "specialty": "Офтальмолог",
+  "roomNumber": 203,
+  "isAvailable": true
+}
+
+### Неверная цена каталога — 400
+POST {{MedicalApi_HostAddress}}/api/SpravkaTypes
+Content-Type: application/json
+
+{
+  "name": "Проверка ошибки",
+  "price": -500,
+  "validDays": 30
+}
